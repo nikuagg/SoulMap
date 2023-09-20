@@ -6,9 +6,9 @@ import streamlit as st
 from streamlit_webrtc import VideoProcessorBase, webrtc_streamer, VideoTransformerBase
 from PIL import Image
 
-logo = Image.open('images/logo.png')
+logo = Image.open('images/soulmap_logo.png')
 # Setting Page Title:
-st.set_page_config(page_title="Smile",page_icon=logo , initial_sidebar_state = 'auto')
+st.set_page_config(page_title="SoulMap",page_icon=logo , initial_sidebar_state = 'auto')    
 
 css_example = '''                                           
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
@@ -105,10 +105,8 @@ def main():
     choice = st.sidebar.selectbox("Select Activity", activiteis)    
     html_sidebar =  """
         <div align="center" style="text-align:center">
-            <h2>Developed By: Aman & Mausmi</h2>
-            <strong>Email:</strong> <a target="_blank" href="mailto:bhogalamansingh22@gmail.com"> bhogalamansingh22@gmail.com</a> & <a target="_blank" href="mailto:sinhatanu2001@gmail.com">sinhatanu2001@gmail.com</a>
-            <br>
-            <a target="_blank" href="https://github.com/MausmiSinha/Facial_Detection_Project" style="font-size:36px"> <i class="fa-brands fa-github"></i> </a>
+            <h2>Developed By: Team Digital Warriors</h2>
+            
         </div> 
     """
     st.sidebar.markdown(html_sidebar, unsafe_allow_html=True)
@@ -127,24 +125,22 @@ def main():
             st.write('')
         header = """
                     <div class = "header">
-                        <h1>Smile</h1>
+                        <h1>SoulMap</h1>
                     </div>
                 """
         st.markdown(header,unsafe_allow_html=True)
         html_temp_home1 = """
                             <div>
-                                <p class="bodyP1">Welcome to Smile. This is an emotion recognition web application! Our advanced technology combines OpenCV and Convolutional Neural Networks to accurately identify emotions in real-time. </p>
+                                <p class="bodyP1">Welcome to SoulMap. This is an emotion recognition web application! Our advanced technology combines OpenCV and Convolutional Neural Networks to accurately identify emotions in real-time. </p>
                                 <p class="bodyP1">Our application is user-friendly and easy to use. Simply use your computer's camera to capture a live video feed, and our advanced algorithms will quickly analyze the facial expressions to detect the emotion displayed. Our application can recognize a wide range of emotions, including happiness, sadness, anger, surprise, fear, and disgust.</p>
                                 <h2>Try Now</h2>
                                 <p>Click on start to use webcam and detect your face emotion</p>
                             </div>
                             """
         st.markdown(html_temp_home1, unsafe_allow_html=True)
-        webrtc_streamer(key="example", video_transformer_factory=EmotionDetector)
+        webrtc_streamer(key="example", video_processor_factory=EmotionDetector)
         html_home2  = """
-            <div class="footer">
-                <p>&copy; 2023 by Aman Singh Bhogal & Mausmi Sinha. All rights reserved.</p>
-            </div>
+            
         """
         st.write(html_home2, unsafe_allow_html=True)
     elif choice == "About Us":
@@ -152,19 +148,16 @@ def main():
         html_temp_about1= """
                             <div class="aboutUs">
                                 <p>
-                                    Smile is an Web Application created by Aman Singh Bhogal and Mausmi Sinha as their Machine Learning Subject's Project. The application uses OpenCV and Convolutional Neural Network model to accurately detect emotions in real-time.
+                                    SoulMap is an interface to detect emotions based on realtime emotions of the tester. The application uses OpenCV and Convolutional Neural Network model to accurately detect emotions in real-time.
                                 </p>
                                 <p>
-                                    Together, Aman and Mausmi worked on this project to create an easy-to-use web application that can accurately detect a wide range of emotions. They hope that this application can be useful for researchers, educators, and anyone interested in exploring the field of emotion detection.
+                                    Together, Team Digital Warriors have worked on this project to create an easy-to-use web application that can accurately detect a wide range of emotions. This application can be useful for researchers, educators, and anyone interested in exploring the field of emotion detection.
                                 </p>
-                                <p>
-                                    If you have any questions or feedback about this project, please feel free to contact us at <a target="_blank" href="mailto:bhogalamansingh22@gmail.com"> bhogalamansingh22@gmail.com</a> or <a target="_blank" href="mailto:sinhatanu2001@gmail.com">sinhatanu2001@gmail.com</a>
-                                </p>
+                                <
                             </div>
                                     """
         st.markdown(html_temp_about1, unsafe_allow_html=True)
-        st.title("Authors:")
-        st.image(['images/Aman Singh Bhogal.jpg','images/mausmi.jpg'], caption=["Aman Singh Bhogal", "Mausmi Sinha"], width=350)
+        
     else:
         pass
 
